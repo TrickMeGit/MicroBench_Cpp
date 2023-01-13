@@ -1,9 +1,9 @@
 #include <iostream>
 #include <chrono>
 
-void run_1() {}     // demo function
+void func1() {}     // demo function
 
-void run_2() {}     // demo function
+void func2() {}     // demo function
 
 void run_bench() {
     std::chrono::_V2::system_clock::time_point start = std::chrono::high_resolution_clock::now();
@@ -12,7 +12,7 @@ void run_bench() {
     float second = 0.0f;
 
     // set run repetitions
-    int64_t runs = 16777216;
+    int64_t runs = 65536;
 
     // bench setup
     int64_t a = 0;
@@ -26,17 +26,16 @@ void run_bench() {
         // a += 1;          // reverse test
 
         // bench function
-        // run_1();
-        // run_2();          // reverse test
+        // func1();
+        // func2();          // reverse test
 
     }   // /1st run
     end = std::chrono::high_resolution_clock::now();
+    first = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() / (float)runs;
 
     // reset bench setup
     a = 0;
     // /reset bench setup
-
-    first = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() / (float)runs;
 
     start = std::chrono::high_resolution_clock::now();
     for (int64_t run = 0; run < runs; run++) {
@@ -46,12 +45,11 @@ void run_bench() {
         // a++;             // reverse test
 
         // bench function
-        // run_2();
-        // run_1();          // reverse test
+        // func2();
+        // func1();          // reverse test
 
     }   // /2nd run
     end = std::chrono::high_resolution_clock::now();
-
     second = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() / (float)runs;
 
     // print result nanoseconds
