@@ -2,7 +2,7 @@
 #include <chrono>
 
 // set run repetitions
-const int64_t runs = 65536;
+const int64_t RUNS = 65536;
 
 void func1() {}     // demo function
 
@@ -19,7 +19,7 @@ int main() {
     // /bench setup
 
     start = std::chrono::high_resolution_clock::now();
-    for (int64_t run = 0; run < runs; run++) {
+    for (int64_t run = 0; run < RUNS; run++) {
         // 1st run
 
         a++;
@@ -31,14 +31,14 @@ int main() {
 
     }   // /1st run
     end = std::chrono::high_resolution_clock::now();
-    first = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() / (float)runs;
+    first = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() / (float)RUNS;
 
     // reset bench setup
     a = 0;
     // /reset bench setup
 
     start = std::chrono::high_resolution_clock::now();
-    for (int64_t run = 0; run < runs; run++) {
+    for (int64_t run = 0; run < RUNS; run++) {
         // 2nd run
 
         a += 1;
@@ -50,7 +50,7 @@ int main() {
 
     }   // /2nd run
     end = std::chrono::high_resolution_clock::now();
-    second = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() / (float)runs;
+    second = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() / (float)RUNS;
 
     // print result nanoseconds
     // std::cout << "1st run: " << first << " ns" << std::endl;
