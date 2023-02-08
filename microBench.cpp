@@ -9,10 +9,10 @@ void func1() {}     // demo function
 void func2() {}     // demo function
 
 int main() {
-    std::chrono::_V2::system_clock::time_point start;
-    std::chrono::_V2::system_clock::time_point end;
-    float first;
-    float second;
+    std::chrono::_V2::system_clock::time_point start = std::chrono::high_resolution_clock::now();
+    std::chrono::_V2::system_clock::time_point end = std::chrono::high_resolution_clock::now();
+    float first = 0.0f;
+    float second = 0.0f;
 
     // bench setup
 
