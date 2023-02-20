@@ -4,9 +4,6 @@
 // add includes & namespaces for bench:
 
 
-// set run repetitions:
-const int64_t RUNS = 65536;
-
 // add variables for bench:
 
 // int64_t a = 0;
@@ -19,6 +16,9 @@ void func2() {}         // demo function
 
 
 int main() {
+    // set run repetitions:
+    const int64_t RUNS = 65536;
+    
     std::chrono::_V2::system_clock::time_point start;
     std::chrono::_V2::system_clock::time_point end;
     float first;
